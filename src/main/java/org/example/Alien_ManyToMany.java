@@ -7,7 +7,7 @@ import org.hibernate.cfg.Configuration;
 
 import java.util.Arrays;
 
-public class Main_Alien {
+public class Alien_ManyToMany {
     public static void main(String[] args) {
 
         Laptop l1 = new Laptop();
@@ -22,14 +22,34 @@ public class Main_Alien {
         l2.setModel("Thinkpad");
         l2.setRam(32);
 
+        Laptop l3 = new Laptop();
+        l3.setLid(3);
+        l3.setBrand("Apple");
+        l3.setModel("Macbook air");
+        l3.setRam(8);
+
         Alien a1 = new Alien();
         a1.setAid(101);
         a1.setAname("Navin");
         a1.setTech("Java");
-        a1.setLaptops(Arrays.asList(l1, l2));
 
-//        l1.setAlien(a1);
-//        l2.setAlien(a1);
+        Alien a2 = new Alien();
+        a2.setAid(102);
+        a2.setAname("Harsh");
+        a2.setTech("Python");
+
+        Alien a3 = new Alien();
+        a3.setAid(103);
+        a3.setAname("Kiran");
+        a3.setTech("AI");
+
+        a1.setLaptops(Arrays.asList(l1, l2));
+        a2.setLaptops(Arrays.asList(l2, l3));
+        a3.setLaptops(Arrays.asList(l1));
+
+        l1.setAlien(Arrays.asList(a1, a3));
+        l2.setAlien(Arrays.asList(a1, a2));
+        l3.setAlien(Arrays.asList(a2));
 
         SessionFactory sf = new Configuration()
                 .addAnnotatedClass(org.example.Alien.class)
@@ -42,11 +62,15 @@ public class Main_Alien {
 
         session.persist(l1);
         session.persist(l2);
+        session.persist(l3);
+
         session.persist(a1);
+        session.persist(a2);
+        session.persist(a3);
 
         transaction.commit();
 
-        Alien a2 = session.find(Alien.class, 101);
+        Alien a5 = session.find(Alien.class, 102);
         System.out.println(a2);
 
         session.close();

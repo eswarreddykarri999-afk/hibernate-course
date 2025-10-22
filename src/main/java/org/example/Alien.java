@@ -20,7 +20,8 @@ public class Alien {
     //@OneToOne // here laptop table has alien_id & vice-versa
     //@OneToMany // it creates 3rd table
     //to avoid that, write as
-    @OneToMany(mappedBy = "alien")
+    //@OneToMany(mappedBy = "alien")
+    @ManyToMany
     private List<Laptop> laptops;
 
     public int getAid() {
