@@ -1,17 +1,21 @@
-package org.example;
+package org.example.manyToMany;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
+
+import java.util.List;
 
 @Entity
-@Table(name="alien_table")
-public class Alien {
+public class Alien_Manymany {
 
     @Id
     private int aid;
-    @Column(name="alien_name")
     private String aname;
-    @Transient
     private String tech;
+    @ManyToMany
+    private List<Laptop_Manymany> laptops;
 
     public int getAid() {
         return aid;
@@ -37,12 +41,21 @@ public class Alien {
         this.tech = tech;
     }
 
+    public List<Laptop_Manymany> getLaptops() {
+        return laptops;
+    }
+
+    public void setLaptops(List<Laptop_Manymany> laptops) {
+        this.laptops = laptops;
+    }
+
     @Override
     public String toString() {
         return "Alien{" +
                 "aid=" + aid +
                 ", aname='" + aname + '\'' +
                 ", tech='" + tech + '\'' +
+                ", laptop=" + laptops +
                 '}';
     }
 }

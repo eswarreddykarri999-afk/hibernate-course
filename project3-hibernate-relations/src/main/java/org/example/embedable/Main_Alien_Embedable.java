@@ -1,4 +1,4 @@
-package org.example;
+package org.example.embedable;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -20,7 +20,7 @@ public class Main_Alien_Embedable {
         a1.setLaptop(l1);
 
         SessionFactory sf = new Configuration()
-                .addAnnotatedClass(org.example.Alien.class)
+                .addAnnotatedClass(Alien.class)
                 .configure().buildSessionFactory();
         Session session = sf.openSession();
         Transaction transaction = session.beginTransaction();
