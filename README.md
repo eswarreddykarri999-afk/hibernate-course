@@ -1,10 +1,14 @@
 **project1-hibernate-basics**
 
-Hibernate setup (Maven/Gradle)
-Configuration with hibernate.cfg.xml or application.properties
-SessionFactory and Session
-Basic CRUD template for a single entity
-Show SQL and refactor
+. Hibernate setup (Maven/Gradle)
+
+. Configuration with hibernate.cfg.xml or application.properties
+
+. SessionFactory and Session
+
+. Basic CRUD template for a single entity
+
+.Show SQL and refactor
 
 **project2-hibernate-crud**
 
