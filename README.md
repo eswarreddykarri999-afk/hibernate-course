@@ -21,7 +21,8 @@
 . @Table, @Column, @Transient
 
 **project3-hibernate-relationships**
-. @Embeddable (merge another enity)
+
+.@Embeddable (merge another enity)
 
 . One-to-One mapping
 
