@@ -31,3 +31,5 @@
 
 . Many-to-Many mapping (total 4 tables will be created) ==> student, laptop, student_laptop, laptop_student
                       We can remove one extra table by using mappedby either on any side.
+
+. Eager & Lazy (Hibernate by-default provides lazy fetch)
